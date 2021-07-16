@@ -32,7 +32,20 @@ var map = new ol.Map({
 });
 
 
-map.getView().fit([476284.211162, 6588039.124656, 490133.421865, 6593648.212727], map.getSize());
+    var searchLayer = new SearchLayer({
+      layer: lyr_B1Chantiers_5,
+      colName: 'B1',
+      zoom: 10,
+      collapsed: true,
+      map: map
+    });
+
+    map.addControl(searchLayer);
+    document.getElementsByClassName('search-layer')[0]
+    .getElementsByTagName('button')[0].className +=
+    ' fa fa-binoculars';
+    
+map.getView().fit([480918.491463, 6589380.052123, 487843.096815, 6593338.877948], map.getSize());
 
 var NO_POPUP = 0
 var ALL_FIELDS = 1
